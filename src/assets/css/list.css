@@ -1,0 +1,115 @@
+.container {
+    position: absolute;
+    top: 66px;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    height: auto;
+    padding: 10px 12px 0;
+    background: #f4f4f4;
+    overflow: hidden;
+}
+.search-bar {
+    min-width: 680px;
+    height: 41px;
+    .width1 {
+        width: 160px;
+    }
+    .width2 {
+        width: 232px;
+    }
+}
+.search-bar-item {
+    float: left;
+    padding: 0 10px;
+}
+.search-bar-item button {
+    width: 98px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+    background: #ff740d;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.search-bar-item .el-input__inner {
+    height: 30px;
+}
+.list-wrapper{
+    position: absolute;
+    top: 84px;
+    bottom: 40px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    height: auto;
+    overflow-x: auto;
+    background: #fff;
+}
+.list-container {
+    position: absolute;
+    top: 33px;
+    bottom: 0;
+    left: 0;
+    right: 12px;
+    width: 100%;
+    min-width: 1140px;
+    height: auto;
+    padding-right: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #fff;
+}
+table{
+    table-layout: fixed;
+}
+.list {
+    width: 100%;
+    border-collapse: collapse;
+}
+.list th,
+.list td {
+    padding-left: 5px;
+    height: 33px;
+    text-align: left;
+    border-bottom: 1px solid #f7f7f7;
+    font-size: 14px;
+    word-wrap:break-word;
+}
+.list th {
+    color: #999999;
+    font-weight: 500;
+}
+.list td {
+    color: #666666;
+}
+.mode{
+    font-size: 13px;
+    margin: 5px;
+    color: #20a0ff;
+    -webkit-appearance: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+}
+.t-tit{
+    min-width: 1140px;
+    padding-right: 34px;
+    background: #eaeaea;
+}
+.list-con-item {
+    background-color: #ffffff;
+    transition: background-color .25s ease;
+}
+.list-con-item:hover {
+    background-color: #d2d2d2;
+}
+.page {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
