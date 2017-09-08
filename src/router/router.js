@@ -54,14 +54,6 @@ export const routes = [
             },
         ]
     },
-
-    // 运行监控
-    // {
-    //     path: '/monitoringRun',
-    //     component: layout,
-    //     name:'运行监控',
-    //     redirect: '/monitoringRun/list',
-    // },
     {path:'*',redirect:'/login'}
 ];
 

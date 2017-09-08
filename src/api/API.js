@@ -1,93 +1,88 @@
 import $ from 'jquery';
 import { Util } from '../lib/util.js'; //引入Util
-var baseUrl = "https://www.ele.me/restapi/shopping/restaurants?extras%5B%5D=activities&geohash=wtmkkc29yxc&latitude=30.28553&limit=24&longitude=120.09252&offset=0&terminal=web";
+var config = {
+	baseUrl : "/bb",
+	contentType: "application/json",
+	dataType: "json",
+	timeout: 1800000,
+};
 class API {
 	commonUrl (){
-		return baseUrl;
+		return config.baseUrl;
 	};
-
-	getN(url, param) {
+	/**
+	* 获取数据ajax-get请求
+	*/
+	getN(url,data,callback){
 		$.ajax({
-			type : 'get',
-			timeout : 180000,
-			dataType : 'json',
-			contentType : 'application/x-www-form-urlencoded',
-			url : baseUrl + url,
-			data : param,
-			beforeSend: function(xhr){//发送请求前运行的函数。
-				console.log('beforeSend',xhr)
+			url: config.baseUrl + url,
+			type:"get",
+			dataType: config.dataType,
+			timeout: config.timeout,
+			data:data,
+			success:function(data){
+				callback(data);
 			},
-			dataFilter(data,type){//用于处理 XMLHttpRequest 原始响应数据的函数。
-
-			},
-			success: function(result,status,xhr){
-
-			},
-			error: function(xhr,status,error){
+			error:function(xhr,textstatus,thrown){
 
 			}
-		})
-	};
-
-	putN(url, param) {//put方式
-
-	};
-
-	ajax(url, param, callback,cat) {
-		$.ajax({
-			type : 'get',
-			timeout : 180000,
-			dataType : 'json',
-			contentType : 'application/x-www-form-urlencoded',
-			url : baseUrl + url,
-			data : param,
-			beforeSend: function(xhr){//发送请求前运行的函数。
-				console.log('beforeSend',xhr)
-			},
-			dataFilter(data,type){//用于处理 XMLHttpRequest 原始响应数据的函数。
-
-			},
-			success: callback,
-			error: cat,
-		})
-	};
-	ajax1(url, param, callback, then) {
-		let that = this;
-		this.getN(url, param).then(callback).then(then).catch(function(error) {
-			that.errorHandle(error);
 		});
 	};
 
-	ajaxPost(url, param, callback) {
+	/**
+	* 提交json数据的post请求
+	*/
+	postN(url,data,callback){
 		$.ajax({
-			type : 'get',
-			timeout : 180000,
-			dataType : 'json',
-			contentType : 'application/x-www-form-urlencoded',
-			url : baseUrl + url,
-			data : param,
-			beforeSend: function(xhr){//发送请求前运行的函数。
-				console.log('beforeSend',xhr)
-			},
-			dataFilter(data,type){//用于处理 XMLHttpRequest 原始响应数据的函数。
-
-			},
+			url: config.baseUrl + url,
+			type:"post",
+			dataType: config.dataType,
+			data:data,
+			timeout: config.timeout,
 			success: callback,
 			error: function(xhr,status,error){
-				console.log('错了')
+				console.log('服务器错误')
 			}
 		})
 	};
 
-	//post请求
-	postN(url, param) {
-	};
-	//上传图片
-	postUp(url, param, progress) {
-	};
+	/**
+	* 修改数据的ajax-put请求
+	*/
+	putN(url,data,callback){
+		$.ajax({
+			url: config.baseUrl + url,
+			type:"put",
+			contentType: config.contentType,
+			dataType: config.dataType,
+			data:data,
+			timeout: config.timeout,
+			success:function(msg){
+				callback(msg);
+			},
+			error:function(xhr,textstatus,thrown){
 
-	//请求错误处理
-	errorHandle(error) {
+			}
+		});
+	};
+	/**
+	* 删除数据的ajax-delete请求
+	*/
+	delN(url,data,callback){
+		$.ajax({
+			url: config.baseUrl + url,
+			type:"delete",
+			contentType: config.contentType,
+			dataType: config.dataType,
+			timeout: config.timeout,
+			data:data,
+			success:function(msg){
+				callback(msg);
+			},
+			error:function(xhr,textstatus,thrown){
+
+			}
+		});
 	};
 
 }

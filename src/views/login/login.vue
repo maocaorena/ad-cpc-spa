@@ -79,17 +79,18 @@
 				// } else {
 					let that = this;
 					// this.loading = true;
-					this.api.ajaxPost('', {
-						username: this.registerMessage.email,
-						password: md.md5(Util.trim(this.registerMessage.passWord)),
-						imgValidateCode: md.md5(Util.trim(this.registerMessage.picCodeMessage).toLowerCase()),
+					this.api.postN('award/activityInfo', {
+						activityid:12167,
+						uid:'42BA1671947CA7CBFF9515C5670A305F',
+						appkey:123,
 					}, function(res) {
-						that.loading = false;
-						if(res.data.successed){
-							window.location.href = '/ad.html';
-						}else{
-							that.loginTip = res.data.errorCode;
-						}
+						console.log(res)
+						// that.loading = false;
+						// if(res.data.successed){
+						// 	window.location.href = '/ad.html';
+						// }else{
+						// 	that.loginTip = res.data.errorCode;
+						// }
 					})
 				// }
 			},
